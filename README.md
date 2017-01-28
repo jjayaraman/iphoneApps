@@ -1,2 +1,2 @@
 # iphoneApps
-Learning to build iPhone apps (Beginer)
+Learning to build iPhone apps (Beginner)
