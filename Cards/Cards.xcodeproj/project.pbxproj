@@ -297,6 +297,7 @@
 				693AD70F1E3967C600AACCA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
