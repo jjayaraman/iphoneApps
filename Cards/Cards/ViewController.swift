@@ -47,7 +47,7 @@ class ViewController: UIViewController {
         }else if leftCardIndex == rightCardIndex {
             
         } else {
-          //  rightScore += 1
+           rightScore += 1
         }
         
         leftScoreOutlet.text = String(leftScore)
