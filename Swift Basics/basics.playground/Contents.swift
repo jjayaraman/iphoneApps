@@ -29,26 +29,4 @@ print(ages)
 // Constants
 let age3 = 100
 let name3 = "Tirupati"
-
-// If / else
-if age == 23 {
-    print("true age is 23")
-} else {
-    print("false")
-}
-
-//for loop
-for  index in 1...3 {
-    print(index)
-}
-
-for card  in cards {
-    print(card)
-}
-
-//while
-var count = 0
-while (count < 3) {
-    print(count)
-    count += 1
-}
+        
