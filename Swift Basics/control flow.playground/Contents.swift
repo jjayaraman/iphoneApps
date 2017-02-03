@@ -28,7 +28,7 @@ while (count < 3) {
     count += 1
 }
 
-//do while
+//repeat while
 var score = 1
 repeat {
     print("score : \(score)")
