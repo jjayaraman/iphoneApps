@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 import SwiftyJSON
 
 
@@ -14,8 +15,7 @@ class ViewController: UIViewController {
     
     //    let path = "http://api.geonames.org/postalCodeLookupJSON?postalcode=6600&country=AT&username=demo"
     
-    static let path = "http://www.learnswiftonline.com/Samples/subway.json"
-    let url = URL(string: path)
+    let path = "http://www.learnswiftonline.com/Samples/subway.json"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,14 +23,16 @@ class ViewController: UIViewController {
         
         // Example Json parsing in swift3
         //self.parseJsonSwift3()
-        self.parseJsonWithSwiftyJson()
+        //self.parseJsonWithSwiftyJson()
+        self.parseJsonAlamofireSwiftyJson()
     }
     
     
     
     // Parse a JSON in Swift3
     func parseJsonSwift3() {
-        
+        let url = URL(string: path)
+
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
             if error != nil {
                 print("error : \(error)")
@@ -58,6 +60,7 @@ class ViewController: UIViewController {
     
     // SwiftyJSON example
     func parseJsonWithSwiftyJson() {
+        let url = URL(string: path)
         
         // Reads the JSON data from network
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
@@ -87,6 +90,26 @@ class ViewController: UIViewController {
         task.resume()
     
     }
+    
+    
+    // Uses Alamofire & SwiftyJson
+    func parseJsonAlamofireSwiftyJson() {
+
+        Alamofire.request(path).responseJSON { (responseData) in
+            if responseData.result.value != nil {
+                let json = JSON(responseData.result.value!)
+                
+                let list: [JSON] = json["stations"].arrayValue
+             
+                for record in list {
+                    print(record["buildYear"])
+                    print(record["stationName"])
+                }
+                
+            }
+        }
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
